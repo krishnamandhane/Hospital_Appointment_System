@@ -2,15 +2,17 @@ package com.silchar.medicare.controller;
 
 
 import com.silchar.medicare.entity.User;
-import java.sql.SQLException;
 import java.util.List;
 import com.silchar.medicare.repository.UserRepository;
+<<<<<<< HEAD
 //import javax.persistence.EntityManager;
 //import javax.websocket.Session;
+=======
+import com.silchar.medicare.validate.UserValidate;
+>>>>>>> branch 'master' of https://github.com/nehru1919/Hospital_Appointment_System.git
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -68,6 +70,7 @@ public class UserController {
         
     }
     
+<<<<<<< HEAD
 //    @PostMapping("/login")
 //    public int PostUser1(@RequestBody User user) {  
 //    	
@@ -82,6 +85,9 @@ public class UserController {
 //		return 1;
 //	
 //	    }
+=======
+   
+>>>>>>> branch 'master' of https://github.com/nehru1919/Hospital_Appointment_System.git
 
     @PutMapping("/editpatient")
     public int update(@RequestBody User user){
@@ -97,7 +103,22 @@ public class UserController {
 		return 1;
     }
 
+    @PostMapping("/login")
+    public int PostUser1(@RequestBody User user) {  
+    	
+	    UserValidate udao=new UserValidate();
+		String username = user.getUsername();   
+		String pass = user.getPassword(); 
+		boolean checkingLogin=udao.validate(username, pass);
+		System.out.print(username+ "\n");	
+		if(checkingLogin) {
+		    return 0;
+		}
+		return 1;
+	
+	    }
 
+    
 	@DeleteMapping("/deluser/{id}")
     public int DeleteUser(@PathVariable int id) { 		
 		userRepository.deleteById(id);
