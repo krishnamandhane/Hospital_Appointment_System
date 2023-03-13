@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.silchar.medicare.Entity.Receptionist;
-import com.silchar.medicare.Repository.ReceptionistRepository;
+import com.silchar.medicare.entity.Receptionist;
+import com.silchar.medicare.repository.ReceptionistRepository;
 import com.silchar.medicare.validate.ReceptionistValidate;
 
 @ComponentScan(basePackages = {"com.met.medicare.Controller"})
