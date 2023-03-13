@@ -13,12 +13,12 @@ public class ReceptionistValidate {
 	public boolean validate(String userName, String password) {
 
         Transaction transaction = null;
-        com.ycp.medicare.Entity.Receptionist Receptionistlogin = null;
+        com.silchar.medicare.entity.Receptionist Receptionistlogin = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
             // get an user object
-            Receptionistlogin=(com.ycp.medicare.Entity.Receptionist)session.createQuery("FROM Receptionist U WHERE U.username = :userName").setParameter("userName", userName)
+            Receptionistlogin=(com.silchar.medicare.entity.Receptionist)session.createQuery("FROM Receptionist U WHERE U.username = :userName").setParameter("userName", userName)
             .uniqueResult();
 
             if (Receptionistlogin != null && Receptionistlogin.getPassword().equals(password)) {
