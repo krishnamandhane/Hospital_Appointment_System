@@ -5,8 +5,8 @@ import com.silchar.medicare.entity.User;
 import java.sql.SQLException;
 import java.util.List;
 import com.silchar.medicare.repository.UserRepository;
-import javax.persistence.EntityManager;
-import javax.websocket.Session;
+//import javax.persistence.EntityManager;
+//import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -68,20 +68,20 @@ public class UserController {
         
     }
     
-    @PostMapping("/login")
-    public int PostUser1(@RequestBody User user) {  
-    	
-	    UserValidate udao=new UserValidate();
-		String username = user.getUsername();   
-		String pass = user.getPassword(); 
-		boolean checkingLogin=udao.validate(username, pass);
-		System.out.print(username+ "\n");	
-		if(checkingLogin) {
-		    return 0;
-		}
-		return 1;
-	
-	    }
+//    @PostMapping("/login")
+//    public int PostUser1(@RequestBody User user) {  
+//    	
+//	   // UserValidate udao=new UserValidate();
+//		String username = user.getUsername();   
+//		String pass = user.getPassword(); 
+//		//boolean checkingLogin=udao.validate(username, pass);
+//		System.out.print(username+ "\n");	
+//		if(checkingLogin) {
+//		    return 0;
+//		}
+//		return 1;
+//	
+//	    }
 
     @PutMapping("/editpatient")
     public int update(@RequestBody User user){
